@@ -23,10 +23,8 @@ class ViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(size)
         let op = OrientionProvider()
-        print(op.orientation() ?? "Can't Detect Oriention")
+        print(op.orientation())
         
     }
 
 }
-
-https://github.com/ShadyGhalab/OrientationProvider.git

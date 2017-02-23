@@ -19,7 +19,7 @@ class OrientionProvider: NSObject {
     }
     
     // MARK: Actual orientation
-    func orientation() -> UIDeviceOrientation? {
+    func orientation() -> UIDeviceOrientation {
         return actualDeviceOrientationFromAccelerometer()
     }
     
@@ -39,8 +39,8 @@ class OrientionProvider: NSObject {
         motionManager.stopAccelerometerUpdates()
     }
     
-    private func actualDeviceOrientationFromAccelerometer() -> UIDeviceOrientation? {
-        guard let acceleration = motionManager.accelerometerData?.acceleration else { return nil }
+    private func actualDeviceOrientationFromAccelerometer() -> UIDeviceOrientation {
+        guard let acceleration = motionManager.accelerometerData?.acceleration else { return UIDeviceOrientation.unknown }
         
         if acceleration.z < -0.75 {
             return UIDeviceOrientation.faceUp
